@@ -1,0 +1,37 @@
+graph TD;
+A((Flask, Flask_CORS, zapv2, time, os, urllib))-->B[Define a Flask app and a Docker client];
+A-->C[Define ZAP API client];
+A-->D[Define a global variable to store the ZAP API key];
+A-->E[Import necessary modules];
+A-->F[Define helper functions];
+
+B-->G[Route /spider];
+B-->H[Route /pscan];
+
+G-->I{POST};
+H-->J{POST};
+
+I-->K(Get url and isActiveScan);
+K-->L(Spider);
+L-->M{Scan completed?};
+M--No-->L;
+M--Yes-->N(Passive Scan);
+N-->O{Active Scan enabled?};
+O--Yes-->P(Active Scan);
+P-->Q{Active scan completed?};
+Q--No-->P;
+Q--Yes-->R(Save scan results to file);
+R-->S(Return scan results);
+
+J-->T(Passive Scan);
+T-->U{Passive scan completed?};
+U--No-->T;
+U--Yes-->V(Save passive scan results to file);
+V-->W(Return scan status);
+
+F-->X(Verify ZAP running);
+F-->Y(Verify ZAP exists);
+Y-->Z(Download ZAP);
+Z-->AA(Extract and rename directory);
+AA-->AB(Remove tar.gz file);
+AB-->AC(ZAP package downloaded successfully);
