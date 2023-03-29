@@ -1,0 +1,9 @@
+graph TD;
+A[User makes a request to the web app] --> B{Is the requested URL '/check_cve'?};
+B -- Yes --> C[Extract the 'cve_id' parameter from the request URL];
+B -- No --> D[Return a 404 error];
+C -- Is the 'cve_id' parameter valid? --> E[Send a request to the CVE API];
+E -- Did the API return a valid response (status code 200)? --> F[Extract the CVE description from the API response];
+F -- Display the first 10 words of the CVE description --> G[Return the description to the user];
+E -- API response status code is not 200 --> H[Return an error message to the user];
+C -- Invalid 'cve_id' parameter --> I[Return an error message to the user];
