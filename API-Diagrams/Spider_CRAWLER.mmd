@@ -1,0 +1,6 @@
+graph LR;
+    A[Start ZAP proxy server] --> B[Configure proxy settings in application];
+    B --> C[Launch ZAP spider to crawl application];
+    C --> D[Launch ZAP active scan];
+    D --> E[Analyze scan results using ZAP API];
+    E --> F[Generate reports and export scan results];
