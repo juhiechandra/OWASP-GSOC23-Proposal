@@ -1,0 +1,16 @@
+graph TD
+A[Start] --> B(Enter the target URL to be scanned)
+B --> C{Is the URL valid?}
+C --> |Yes| D[Scan the URL using Nikto scanner]
+C --> |No| E[Show error message Invalid URL]
+D --> F[Send various HTTP requests to the target URL]
+F --> G[Analyze the responses to the HTTP requests]
+G --> H{Are there any vulnerabilities or misconfigurations?}
+H --> |Yes| I[Add the vulnerability or misconfiguration to the list]
+H --> |No| J[Return No vulnerabilities or misconfigurations found]
+I --> K{Is the vulnerability or misconfiguration in the SANS Top 25 list?}
+K --> |Yes| L[Return the vulnerability or misconfiguration with its severity level and how to fix it]
+K --> |No| J
+L --> M[End]
+J --> M[End]
+E --> M[End]
