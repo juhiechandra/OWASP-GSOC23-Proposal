@@ -1,0 +1,8 @@
+graph TD
+    A[Start] --> B[Parse Arguments]
+    B --> C{URL or File?}
+    C --> |URL| D[Create Helios Instance with URL]
+    C --> |File| E[Create Helios Instance with File]
+    D --> F[Run Helios Instance]
+    E --> F
+    F --> G[Exit]

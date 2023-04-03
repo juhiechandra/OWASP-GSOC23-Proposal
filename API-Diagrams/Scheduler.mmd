@@ -1,0 +1,7 @@
+graph TD;
+    User-->|Specifies parameters|Scheduler;
+    Scheduler-->|Schedules job|Job;
+    Job-->|Runs code|Code;
+    Code-->|Returns back output|Job;
+    Job-->|Sends output|Output;
+    Output-->|Sends output|Dashboard;

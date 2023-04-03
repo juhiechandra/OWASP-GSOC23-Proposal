@@ -1,0 +1,9 @@
+graph TD;
+    subgraph ISO 27001
+        ISO27001-->|"Weak Passwords"|OWASPTop10
+        ISO27001-->|"Malware Detection"|CVE
+        ISO27001-->|"Unauthorized Access"|OWASPTop10,CVE,SANSTop25
+        ISO27001-->|"Data Breaches"|OWASPTop10,CVE,SANSTop25
+    end
+
+

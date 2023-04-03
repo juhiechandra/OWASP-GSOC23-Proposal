@@ -1,0 +1,17 @@
+graph TD;
+    A[Client] --> B(Flask API)
+    B --> C{Input Validation}
+    C -->|Valid| D[Send URL to VirusTotal]
+    D --> E{Check Scan Status}
+    E -->|Scan Complete| F[Retrieve Scan Report]
+    F --> G{Check Scan Results}
+    G -->|Malware Found| H[Return Malware Results]
+    G -->|No Malware Found| I[Return No Malware Results]
+    C -->|Invalid| J[Return Error]
+
+    subgraph VirusTotal
+        D --> K[Scan URL]
+        F --> L[Retrieve Scan Report]
+    end
+
+

@@ -1,0 +1,17 @@
+graph LR
+A[Command Line Arguments] --> B{Chromedriver Options}
+B --> |"Run WebDriver for advanced discovery"| C((WebDriver))
+C --> |"Show the WebDriver window"| D[Display Browser Window]
+D --> |"Interact with the displayed webpage"| C
+B --> |"Enable the crawler"| E{Crawler Options}
+E --> |"Crawl and scan an entire domain"| F[Crawl and Scan Domain]
+E --> |"Set max urls for the crawler"| G[Set Max URLs]
+E --> |"Set extra allowed scopes"| H[Set Extra Scopes]
+E --> |"Enable the scanner"| I{Scanner Options}
+I --> |"Safe scan"| J[Safe Scan]
+I --> |"Full scan"| K[Full Scan]
+I --> |"Scan a single URL"| L[Scan Single URL]
+I --> |"Enable scanning of web application frameworks"| M[Scan Webapps and CMS Systems]
+I --> |"Enable the msfrpcd exploit module"| N{Metasploit Options}
+N --> |"Pwn a web server"| O[Pwn Web Server]
+A --> |"Show help message"| P[Display Help Message]
