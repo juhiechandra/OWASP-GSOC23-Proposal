@@ -1,0 +1,8 @@
+graph TD;
+    A((Agent.py)) -->|Imports| B((Vulnerability.py));
+    A -->|Sends results| C((Server.py));
+    B --> D(OwaspTop10Scanner);
+    B --> E(CVEMitreScanner);
+    B --> F(SANSTop25Scanner);
+    B --> G(ISO27001Scanner);
+    C -->|Receives results| H((Database));
